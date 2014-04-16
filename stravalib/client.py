@@ -393,6 +393,8 @@ class Client(object):
             params['trainer'] = int(trainer)            
         if gear_id is not None:
             params['gear_id'] = gear_id
+        if description is not None:
+            params['description'] = description
             
         raw_activity = self.protocol.put('/activities/{activity_id}', **params)
         return model.Activity.deserialize(raw_activity, bind_client=self)
